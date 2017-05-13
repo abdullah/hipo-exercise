@@ -2,23 +2,28 @@
     //Banner
     .banner {
       background-color: #ccc;
-      min-height: 600px;
       background: url('/static/home/background.png') no-repeat;
       background-position: center;
       background-size: cover;
       .banner-content {
-        position: relative;
         display: flex;
         align-items: center;
         flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        min-height: 600px;
         .brand-logo {
-          img {
-            max-height: 288px;
-          }
+          width: 360px;
+          height: 360px;
+          position: absolute;
+          border: 3.5px solid #fff;
+          transform: rotate(45deg);
+          top: -180px;
         }
         .slogan {
           max-width: 590px;
           width: 100%;
+          // margin-top: 90px;
           h2 {
             font-size: 55px;
             font-weight: 200;
@@ -38,6 +43,7 @@
           width: 100%;
           max-width: 550px;
           display: flex;
+          margin-bottom: 100px;
           .form-group {
             margin-right: 10px;
             &:nth-child(1) {
@@ -69,7 +75,148 @@
           }
         }
       }
+      &.show-detail {
+        align-items: center;
+        justify-content: center;
+        min-height: 150px;
+        transition: all 1s;
+        .banner-content {
+          transition: all 1s;
+          min-height: 150px!important;
+          flex-direction: row;
+          align-items: center;
+          .slogan {
+            display: none;
+          }
+          .brand-logo {
+            height: 124px;
+            margin-top: -20px;
+            background: url('/static/common/logo-2.svg') no-repeat;
+            transition: all 1s;
+          }
+          .search-area {
+            margin-bottom: 0;
+            margin-top: 0;
+          }
+        }
+      }
+    } //Search Result
+    .search-result {
+      margin-top: 40px;
+      .card-col {
+        padding: 10px;
+        margin: 0;
+        a {
+          display: block;
+          background: red;
+          margin-top: auto;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .result-card {
+        width: 100%;
+        height: 300px;
+        background: #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: url('/static/home/background.png') no-repeat;
+        position: relative;
+        overflow: hidden;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -32px;
+          right: 14px;
+          width: 65px;
+          height: 65px;
+          transform: rotate(-45deg);
+          background-color: #776cee;
+        }
+        .desc {
+          padding: 18px;
+          h3 {
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            position: relative;
+            padding-bottom: 5px;
+            font-weight: normal;
+            margin: 0 0 13px 0;
+            &:after {
+              content: '';
+              width: 50px;
+              height: 2px;
+              background-color: #c4c0ff;
+              position: absolute;
+              bottom: 0px;
+              left: 0;
+            }
+          }
+          span {
+            color: #fff;
+            margin-right: 10px;
+          }
+          .point {
+            position: absolute;
+            right: 34px;
+            bottom: 4px;
+            z-index: 2;
+            color: #fff;
+          }
+        }
+      }
+      .recent-search {
+        box-shadow: 0 0 34px 0 rgba(255, 95, 95, 0.32);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 40px;
+        margin-top: 10px;
+        &:after,
+        &:before {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        span {
+          display: block;
+          font-size: 16px;
+          font-weight: 500;
+          color: #4a4a4a;
+          padding: 40px 0;
+          position: relative;
+          &:after {
+            content: "";
+            width: 70px;
+            height: 2px;
+            background-color: #c4c0ff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+          }
+        }
+        ul {
+          list-style: none;
+          width: 100%;
+          padding: 0 15px;
+          margin: 30px 0 0 0;
+          li {
+            text-align: center;
+            border-bottom: solid 1px #e4e4e4;
+            a {
+              display: block;
+              padding: 15px 0;
+              text-decoration: none;
+              font-size: 14px;
+              font-weight: 500;
+              color: #9b9b9b;
+            }
+          }
+        }
+      }
     }
-    //Search Result
-
   }

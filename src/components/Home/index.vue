@@ -1,13 +1,12 @@
 <template>
   <section class="home">
-    <div class="banner">
+    <div class="banner"
+         :class="{'show-detail' : result.loaded}">
       <div class="container">
         <div class="banner-content">
-          <a class="brand-logo">
-            <img src="static/common/logo.svg"
-                 alt="">
-          </a>
-          <div class="slogan">
+          <div class="brand-logo"></div>
+          <div class="slogan"
+               v-show="!result.loaded">
             <h2>
               Lorem ipsum dolor sit!
             </h2>
@@ -17,13 +16,16 @@
           <div class="search-area">
             <div class="form-group">
               <input type="text"
+                     v-model="searchText"
                      placeholder="I’m looking for">
             </div>
             <div class="form-group">
               <input type="text"
+                     v-model="place"
                      placeholder="Istanbul">
             </div>
-            <a href="#"></a>
+            <a href="#"
+               @click.prevent="search"></a>
           </div>
         </div>
       </div>
@@ -39,6 +41,27 @@ export default {
   name: 'home',
   components: {
     showResult,
+  },
+  data() {
+    return {
+      searchText: '',
+      place: '',
+      result: {
+        loading: false,
+        loaded: false,
+        failure: false,
+        data: [],
+      },
+    };
+  },
+  methods: {
+    search() {
+      this.result.loading = true;
+      setTimeout(() => {
+        this.result.data = [1, 2, 3];
+        this.result.loaded = true;
+      }, 300);
+    },
   },
 };
 </script>

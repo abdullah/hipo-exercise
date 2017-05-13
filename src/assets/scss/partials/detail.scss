@@ -1,0 +1,47 @@
+section.detail {
+  .banner {
+    background: url('/static/home/background.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    .banner-detail-content {
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .banner-icons {
+      display: inline-flex;
+      align-self: center;
+      position: absolute;
+      height: 360px;
+      width: 360px;
+      transform: rotate(-45deg);
+      top: -180px;
+      .box {
+        position: relative;
+      }
+      .one {
+        width: 360px;
+        height: 360px;
+        border: solid 3.5px #ffffff;
+      }
+      .two {
+        position: absolute;
+        left: -200px;
+        bottom: 0;
+        width: 180px;
+        height: 180px;
+        border: solid 3.5px #ffc5c5;
+      }
+    }
+    .detail-of-place {
+      height: 205px;
+      h2 {
+        font-size: 64px;
+        font-weight: 300;
+        color: #ffffff;
+        margin: 0;
+      }
+    }
+  }
+}

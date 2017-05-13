@@ -27,6 +27,7 @@
 
 <script>
 import showResult from '@/components/Home/show';
+import { searchPlace } from '@/services/home';
 
 export default {
   name: 'home',
@@ -45,13 +46,18 @@ export default {
       },
     };
   },
+  /* eslint-disable */
   methods: {
-    search() {
+    async search() {
       this.result.loading = true;
-      setTimeout(() => {
-        this.result.data = [1, 2, 3];
+      try {
+        const data = await searchPlace('x');
+        this.result.data = data;
         this.result.loaded = true;
-      }, 300);
+      } catch (error) {
+        this.result.loading = false;
+        this.result.failure = true;
+      }
     },
   },
 };

@@ -1,12 +1,12 @@
 
 <template>
   <a href="">
-    <div class="result-card">
+    <div class="result-card" :style="{ 'background-image': 'url('+photo+')' }">
       <div class="desc">
-        <h3>Name of Cafe</h3>
+        <h3>{{data.venue.name}}</h3>
         <span>123</span>
         <span>123</span>
-        <div class="point">8.8</div>
+        <div class="point">{{data.venue.rating}}</div>
       </div>
     </div>
   </a>
@@ -14,6 +14,18 @@
 
 <script>
 export default {
+  props: ['data'],
   name: 'search-result-card',
+  computed: {
+    photo() {
+      /* eslint-disable */
+      if (!this.data.venue.photos.count) return '';
+
+      const photo = this.data.venue.photos.groups[0].items[0];
+      console.log();
+      const url = `${photo.prefix}300x500${photo.suffix}`;
+      return url
+    },
+  },
 };
 </script>

@@ -122,7 +122,9 @@ section.page {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        background: url('/static/home/background.png') no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         position: relative;
         overflow: hidden;
         &:after {

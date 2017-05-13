@@ -11,22 +11,22 @@
           </div>
           <div class="search-area">
             <div class="form-group">
-              <input type="text" v-model="searchText" placeholder="I’m looking for">
+              <input type="text" v-model="query" placeholder="I’m looking for">
             </div>
             <div class="form-group">
-              <input type="text" v-model="place" placeholder="Istanbul">
+              <input type="text" v-model="near" placeholder="Istanbul">
             </div>
             <a href="#" @click.prevent="search"></a>
           </div>
         </div>
       </div>
     </div>
-    <show-result data="data" />
+    <show-result v-if="result.loaded" :data="listVenues" />
   </section>
 </template>
 
 <script>
-import showResult from '@/components/Home/show';
+import showResult from '@/components/Home/show-result';
 import { searchPlace } from '@/services/home';
 
 export default {
@@ -36,23 +36,37 @@ export default {
   },
   data() {
     return {
-      searchText: '',
-      place: '',
+      query: 'sushi',
+      near: 'istanbul',
       result: {
         loading: false,
         loaded: false,
         failure: false,
-        data: [],
+        body: [],
       },
     };
   },
-  /* eslint-disable */
+  computed: {
+    listVenues() {
+      if (!this.result.loaded) return [];
+
+      return this.result.body.data.response.groups.reduce((arr, g) => {
+        g.items.map(item => arr.push(item));
+
+        return arr;
+      }, []);
+    },
+  },
   methods: {
     async search() {
       this.result.loading = true;
+      this.result.failure = false;
       try {
-        const data = await searchPlace('x');
-        this.result.data = data;
+        const data = await searchPlace({
+          near: this.near,
+          query: this.query,
+        });
+        this.result.body = data;
         this.result.loaded = true;
       } catch (error) {
         this.result.loading = false;

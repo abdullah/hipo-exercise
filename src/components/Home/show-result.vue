@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-8">
           <div class="row">
-            <div class="col-xs-12 col-sm-6 card-col" v-for="x in 10">
-              <show-result-card :key="x" data="data" />
+            <div class="col-xs-12 col-sm-6 card-col" v-for="venue in data">
+              <show-result-card :key="venue.referralId" :data="venue" />
             </div>
           </div>
         </div>
@@ -23,6 +23,7 @@ import recentSearch from '@/components/Home/recent-search';
 
 export default {
   name: 'search-result',
+  props: ['data'],
   components: {
     showResultCard,
     recentSearch,

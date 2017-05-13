@@ -1,3 +1,75 @@
-section.home {
+  section.home {
+    //Banner
+    .banner {
+      background-color: #ccc;
+      min-height: 600px;
+      background: url('/static/home/background.png') no-repeat;
+      background-position: center;
+      background-size: cover;
+      .banner-content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .brand-logo {
+          img {
+            max-height: 288px;
+          }
+        }
+        .slogan {
+          max-width: 590px;
+          width: 100%;
+          h2 {
+            font-size: 55px;
+            font-weight: 200;
+            text-align: center;
+            color: #ffffff;
+            margin: 13px 0 7px 0;
+          }
+          p {
+            font-size: 16px;
+            text-align: center;
+            color: #ffffff;
+            margin: 0;
+          }
+        }
+        .search-area {
+          margin-top: 65px;
+          width: 100%;
+          max-width: 550px;
+          display: flex;
+          .form-group {
+            margin-right: 10px;
+            &:nth-child(1) {
+              flex-basis: 285px;
+            }
+            &:nth-child(2) {
+              flex-basis: 165px;
+            }
+          }
+          input {
+            height: 45px;
+            padding: 0 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+            width: 100%;
+            border: 0;
+          }
+          a {
+            display: inline-block;
+            background: #ff5f5f url('/static/common/icon-search-white.svg') no-repeat;
+            background-position: top 1px center;
+            width: 77px;
+            height: 45px;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+          }
+        }
+      }
+    }
+    //Search Result
 
-}
+  }

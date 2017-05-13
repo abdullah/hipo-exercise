@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  name: 'search-result-card',
+  name: 'detail-card',
 };
 </script>

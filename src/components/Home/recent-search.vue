@@ -1,7 +1,7 @@
 
 <template>
   <div class="recent-search">
-    <span>RECENT SEARCHES</span>
+    <span class="title">RECENT SEARCHES</span>
     <ul>
       <li><a href="">Pizaa</a></li>
       <li><a href="">Pizaa</a></li>

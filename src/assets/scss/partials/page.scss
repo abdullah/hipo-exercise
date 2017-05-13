@@ -1,0 +1,54 @@
+section.page {
+  .recent-search,
+  .tips {
+    background-color: #fff;
+    box-shadow: 0 0 34px 0 rgba(255, 95, 95, 0.32);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 40px;
+    margin-top: 10px;
+    &:after,
+    &:before {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    span.title {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #4a4a4a;
+      padding: 40px 0;
+      position: relative;
+      &:after {
+        content: "";
+        width: 70px;
+        height: 2px;
+        background-color: #c4c0ff;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+    ul {
+      list-style: none;
+      width: 100%;
+      padding: 0 15px;
+      margin: 30px 0 0 0;
+      li {
+        text-align: center;
+        border-bottom: solid 1px #e4e4e4;
+        a {
+          display: block;
+          padding: 15px 0;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 500;
+          color: #9b9b9b;
+        }
+      }
+    }
+  }
+}

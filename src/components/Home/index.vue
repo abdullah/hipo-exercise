@@ -33,6 +33,7 @@ import loading from '@/components/common/loading';
 
 // Helper
 import searchPlace from '@/services/home';
+import storage from '@/helpers/localStorage';
 
 export default {
   name: 'home',
@@ -44,7 +45,7 @@ export default {
     return {
       query: 'sushi',
       near: 'Istanbul',
-      recentSearch: [],
+      recentSearch: storage.get() || [],
       result: {
         loading: false,
         loaded: false,
@@ -79,6 +80,7 @@ export default {
           query: this.query,
         });
 
+        storage.set(this.recentSearch);
         this.result.body = data;
         this.result.loaded = true;
         this.result.loading = false;

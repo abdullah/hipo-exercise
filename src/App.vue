@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="page-animate" enter-active-class="animated bounceInDown" leave-active-class="animated slideOutRight" mode="out-in">
+    <transition name="page-animate" enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight" mode="out-in">
       <router-view></router-view>
     </transition>
     <footer-navigation></footer-navigation>

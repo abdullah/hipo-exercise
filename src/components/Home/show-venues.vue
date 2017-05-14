@@ -5,12 +5,12 @@
         <div class="col-xs-12 col-sm-6 col-md-8">
           <div class="row">
             <div class="col-xs-12 col-sm-6 card-col" v-for="venue in data">
-              <show-result-card :key="venue.referralId" :data="venue" />
+              <venues-card :key="venue.referralId" :data="venue" />
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <recent-search />
+          <recent-search :data="recentSearch" />
         </div>
       </div>
     </div>
@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import showResultCard from '@/components/Home/search-result-card';
+import venuesCard from '@/components/Home/venues-card';
 import recentSearch from '@/components/Home/recent-search';
 
 export default {
   name: 'search-result',
-  props: ['data'],
+  props: ['data', 'recentSearch'],
   components: {
-    showResultCard,
+    venuesCard,
     recentSearch,
   },
 };

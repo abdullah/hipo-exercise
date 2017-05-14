@@ -5,9 +5,8 @@
         <div class="banner-content">
           <div class="brand-logo"></div>
           <div class="slogan" v-show="!result.loaded">
-            <h2>Lorem ipsum dolor sit!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Just like you want!</h2>
+            <p>You can tell us what you're looking for</p>
           </div>
           <div class="search-area">
             <div class="form-group">
@@ -21,23 +20,31 @@
         </div>
       </div>
     </div>
-    <show-result v-if="result.loaded" :data="listVenues" />
+    <loading v-if="result.loading" />
+    <show-venues v-if="result.loaded" :data="listVenues" :recentSearch="recentSearch" />
   </section>
 </template>
 
 <script>
-import showResult from '@/components/Home/show-result';
+
+// Components
+import showVenues from '@/components/Home/show-venues';
+import loading from '@/components/common/loading';
+
+// Helper
 import { searchPlace } from '@/services/home';
 
 export default {
   name: 'home',
   components: {
-    showResult,
+    showVenues,
+    loading,
   },
   data() {
     return {
       query: 'sushi',
-      near: 'istanbul',
+      near: 'Istanbul',
+      recentSearch: [],
       result: {
         loading: false,
         loaded: false,
@@ -47,17 +54,17 @@ export default {
     };
   },
   computed: {
+    // Merge all venues in  all groups type
     listVenues() {
-      if (!this.result.loaded) return [];
-
-      return this.result.body.data.response.groups.reduce((arr, g) => {
+      const { body: { data: { response: { groups } } } } = this.result;
+      return groups.reduce((arr, g) => {
         g.items.map(item => arr.push(item));
-
         return arr;
       }, []);
     },
   },
   methods: {
+    // Fetch place with query
     async search() {
       this.result.loading = true;
       this.result.failure = false;
@@ -66,8 +73,15 @@ export default {
           near: this.near,
           query: this.query,
         });
+
+        this.recentSearch.push({
+          near: this.near,
+          query: this.query,
+        });
+
         this.result.body = data;
         this.result.loaded = true;
+        this.result.loading = false;
       } catch (error) {
         this.result.loading = false;
         this.result.failure = true;

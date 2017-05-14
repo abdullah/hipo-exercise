@@ -18,13 +18,9 @@ export default {
   name: 'search-result-card',
   computed: {
     photo() {
-      /* eslint-disable */
-      if (!this.data.venue.photos.count) return '';
-
       const photo = this.data.venue.photos.groups[0].items[0];
-      console.log();
       const url = `${photo.prefix}300x500${photo.suffix}`;
-      return url
+      return url;
     },
   },
 };

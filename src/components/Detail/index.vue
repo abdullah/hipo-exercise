@@ -6,7 +6,7 @@
           <div class="box two">
             <span class="icon">icon</span>
           </div>
-          <div class="box one">
+          <div class="box one brand-logo">
             <span class="icon">icon</span>
           </div>
         </div>

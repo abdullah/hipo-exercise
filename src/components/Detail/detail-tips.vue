@@ -11,6 +11,7 @@
         </div>
       </li>
     </ul>
+    <a href="#" class="show-all-tips" @click.prevent="showAllTips = true" v-show="!showAllTips">All Tips</a>
   </div>
 </template>
 
@@ -19,14 +20,20 @@
 export default {
   props: ['data'],
   name: 'detail-tips',
+  data() {
+    return {
+      showAllTips: false,
+    };
+  },
   computed: {
     list() {
-      return this.data.groups.filter(g => g.type === 'others')[0].items;
+      const data = this.data.groups.filter(g => g.type === 'others')[0].items;
+      return this.showAllTips ? data : data.slice(0, 10);
     },
   },
   methods: {
     fullName(item) {
-      return `${item.user.firstName} ${item.user.lastName}`;
+      return `${item.user.firstName} ${item.user.lastName || ''}`;
     },
     avatar(item) {
       const { photo } = item.user;

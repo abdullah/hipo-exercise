@@ -14,7 +14,8 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/detail',
+      path: '/detail/:id?',
+      props: true,
       name: 'detail',
       component: Detail,
     },

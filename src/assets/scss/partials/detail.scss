@@ -92,9 +92,12 @@ section.page {
       .card-col {
         padding: 10px;
       }
-      .card {
+      .photo-card {
         height: 290px;
-        background: #ccc;
+        background-color: #ccc;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
       }
       .tips {
         margin-top: -90px;

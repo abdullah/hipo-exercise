@@ -1,6 +1,6 @@
 
 <template>
-  <a href="">
+  <router-link :to="{ name: 'detail', params: { id: data.venue.id }}">
     <div class="result-card" :style="{ 'background-image': 'url('+photo+')' }">
       <div class="desc">
         <h3>{{data.venue.name}}</h3>
@@ -9,7 +9,7 @@
         <div class="point">{{data.venue.rating}}</div>
       </div>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script>

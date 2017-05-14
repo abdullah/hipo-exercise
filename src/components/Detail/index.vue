@@ -1,6 +1,6 @@
 <template>
   <section class="page detail">
-    <div class="banner">
+    <div class="banner" :style="{ 'background-image': 'url('+ bestPhoto +')' }">
       <div class="banner-detail-content">
         <div class="banner-icons">
           <div class="box two">
@@ -12,19 +12,19 @@
         </div>
         <div class="detail-of-place">
           <div class="container">
-            <h2>Name of Cafe</h2>
+            <h2>{{result.body.name}}</h2>
           </div>
           <div class="place-info">
             <div class="container">
-              <div class="point">8.8</div>
+              <div class="point">{{result.body.rating}}</div>
               <div class="info-field">
-                <address>Caferağa Mh. Kadife Sk. No:15 Kadıköy</address>
+                <address>{{result.body.location.address}}</address>
               </div>
               <div class="info-field">
-                <a href="">0 (216) 345 67 78</a>
+                <a :href="'tel:'+result.body.contact.phone">{{result.body.contact.formattedPhone}}</a>
               </div>
               <div class="info-field">
-                <span>123</span>
+                <span>{{result.body.ratingSignals}}</span>
               </div>
             </div>
           </div>
@@ -36,10 +36,8 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="row">
-              <div class="col-xs-12 col-xs-6 card-col" v-for="i in 10">
-                <div class="card">
-                  <!--  -->
-                </div>
+              <div class="col-xs-12 col-xs-6 card-col" v-for="p in photos">
+                <photo-card :data="p"></photo-card>
               </div>
             </div>
           </div>
@@ -62,9 +60,55 @@
     </div>
   </section>
 </template>
+
 <script>
+import { getVenue } from '@/services/detail';
+import photoCard from '@/components/Detail/photo-card';
 
 export default {
+  props: ['id'],
   name: 'detail',
+  components: { photoCard },
+  data() {
+    return {
+      result: {
+        loading: false,
+        loaded: false,
+        failure: false,
+        body: [],
+      },
+    };
+  },
+  created() {
+    this.getDetail();
+  },
+  computed: {
+    bestPhoto() {
+      if (!this.result.loaded) return [];
+      const { prefix, suffix } = this.result.body.bestPhoto;
+      return `${prefix}300x400${suffix}`;
+    },
+    photos() {
+      if (!this.result.loaded) return [];
+      return this.result.body.photos.groups.reduce((arr, g) => {
+        g.items.map(item => arr.push(item));
+        return arr;
+      }, []);
+    },
+  },
+  methods: {
+    async getDetail() {
+      this.result.loading = true;
+      try {
+        const res = await getVenue(this.id);
+        this.result.body = res.data.response.venue;
+        this.result.loading = false;
+        this.result.loaded = true;
+      } catch (error) {
+        this.result.loading = false;
+        this.result.failure = false;
+      }
+    },
+  },
 };
 </script>

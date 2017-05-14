@@ -21,7 +21,7 @@
       </div>
     </div>
     <loading v-if="result.loading" />
-    <show-venues v-if="result.loaded" :data="listVenues" :recentSearch="recentSearch" />
+    <show-venues v-if="result.loaded" :data="listVenues" :recentSearch="recentSearch" :showRecent="search" />
   </section>
 </template>
 
@@ -66,13 +66,14 @@ export default {
   },
   methods: {
     // Fetch place with query
-    async search() {
+    async search(options) {
       this.result.loading = true;
       this.result.failure = false;
+
       try {
         const data = await searchPlace({
-          near: this.near,
-          query: this.query,
+          near: options.near || this.near,
+          query: options.query || this.query,
         });
 
         this.recentSearch.push({

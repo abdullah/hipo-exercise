@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <recent-search :data="recentSearch" />
+          <recent-search :showRecent="showRecent" :data="recentSearch" />
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@ import recentSearch from '@/components/Home/recent-search';
 
 export default {
   name: 'search-result',
-  props: ['data', 'recentSearch'],
+  props: ['data', 'recentSearch', 'showRecent'],
   components: {
     venuesCard,
     recentSearch,

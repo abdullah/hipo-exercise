@@ -48,6 +48,7 @@
     </div>
 
     <loading v-if="result.loading" />
+    <error-page v-if="result.failure" />
   </section>
 </template>
 
@@ -56,11 +57,12 @@ import { getVenue } from '@/services/detail';
 import photoCard from '@/components/Detail/photo-card';
 import detailTips from '@/components/Detail/detail-tips';
 import loading from '@/components/common/loading';
+import errorPage from '@/components/ErrorPage';
 
 export default {
   props: ['id'],
   name: 'detail',
-  components: { photoCard, detailTips, loading },
+  components: { photoCard, detailTips, loading, errorPage },
   data() {
     return {
       result: {
@@ -102,7 +104,7 @@ export default {
         this.result.loaded = true;
       } catch (error) {
         this.result.loading = false;
-        this.result.failure = false;
+        this.result.failure = true;
       }
     },
   },

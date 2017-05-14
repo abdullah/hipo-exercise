@@ -57,7 +57,7 @@ import getVenue from '@/services/detail';
 import photoCard from '@/components/Detail/photo-card';
 import detailTips from '@/components/Detail/detail-tips';
 import loading from '@/components/common/loading';
-import errorPage from '@/components/ErrorPage';
+import errorPage from '@/components/common/ErrorPage';
 
 export default {
   props: ['id'],

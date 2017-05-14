@@ -7,7 +7,7 @@
 
 <script>
 
-import FooterNavigation from '@/components/FooterNavigation';
+import FooterNavigation from '@/components/common/FooterNavigation';
 
 export default {
   name: 'app',

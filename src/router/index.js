@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home/index';
 import Detail from '@/components/Detail/index';
-import ErrorPage from '@/components/ErrorPage';
+import ErrorPage from '@/components/common/ErrorPage';
 
 Vue.use(Router);
 

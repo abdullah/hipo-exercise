@@ -63,7 +63,7 @@
 import getVenue from '@/services/detail';
 import photoCard from '@/components/Detail/photo-card';
 import detailTips from '@/components/Detail/detail-tips';
-import loading from '@/components/common/loading';
+import loading from '@/components/common/Loading';
 import errorPage from '@/components/common/ErrorPage';
 
 export default {
@@ -93,6 +93,7 @@ export default {
       const price = this.result.body.price;
       return price ? price.tier : 0;
     },
+    // Merge all venue photos in all groups
     photos() {
       if (!this.result.loaded) return [];
       return this.result.body.photos.groups.reduce((arr, g) => {

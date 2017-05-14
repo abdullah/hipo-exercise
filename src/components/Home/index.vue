@@ -29,7 +29,7 @@
 
 // Components
 import showVenues from '@/components/Home/show-venues';
-import loading from '@/components/common/loading';
+import loading from '@/components/common/Loading';
 
 // Helper
 import searchPlace from '@/services/home';

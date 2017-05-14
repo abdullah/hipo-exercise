@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      query: 'sushi',
+      query: '',
       near: 'Istanbul',
       recentSearch: storage.get() || [],
       result: {

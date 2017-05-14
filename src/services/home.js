@@ -13,6 +13,7 @@ const searchPlace = data => {
         client_secret: clientSecret,
         v: "20171201",
         venuePhotos: 1,
+        limit:10,
         ...data
       }
     })

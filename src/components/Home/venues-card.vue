@@ -1,11 +1,11 @@
 
 <template>
   <router-link :to="{ name: 'detail', params: { id: data.venue.id }}">
-    <div class="result-card" :style="{ 'background-image': 'url('+photo+')' }">
+    <div class="venue-card" :style="{ 'background-image': 'url('+photo+')' }">
       <div class="desc">
         <h3>{{data.venue.name}}</h3>
-        <span>123</span>
-        <span>123</span>
+        <span>{{data.venue.ratingSignals}}</span>
+        <span></span>
         <div class="point">{{data.venue.rating}}</div>
       </div>
     </div>
@@ -15,11 +15,11 @@
 <script>
 export default {
   props: ['data'],
-  name: 'search-result-card',
+  name: 'venue-card',
   computed: {
     photo() {
-      const photo = this.data.venue.photos.groups[0].items[0];
-      const url = `${photo.prefix}300x500${photo.suffix}`;
+      const photo = this.data.venue.featuredPhotos.items[0];
+      const url = `${photo.prefix}300x300${photo.suffix}`;
       return url;
     },
   },

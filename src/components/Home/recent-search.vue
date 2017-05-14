@@ -12,6 +12,6 @@
 <script>
 export default {
   props: ['data'],
-  name: 'search-result-card',
+  name: 'recent-search',
 };
 </script>

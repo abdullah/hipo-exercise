@@ -6,7 +6,7 @@
         <h3>{{data.venue.name}}</h3>
         <span>{{data.venue.ratingSignals}}</span>
         <span></span>
-        <div class="point">{{data.venue.rating}}</div>
+        <div class="point" :style="{ 'background-color': '#'+ data.venue.ratingColor }" :data-poin="data.venue.rating"></div>
       </div>
     </div>
   </router-link>

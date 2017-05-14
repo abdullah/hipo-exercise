@@ -82,16 +82,17 @@ section.page {
             text-align: center;
             line-height: 65px;
             font-size: 18px;
+            // background-color: #776cee;
+            transform: rotate(-45deg);
             &:after {
-              content: "";
+              content: attr(data-point);
               width: 65px;
               height: 65px;
               left: 0;
               top: 0;
-              background-color: #776cee;
               position: absolute;
-              transform: rotate(-45deg);
-              z-index: -1
+              z-index: -1;
+              transform: rotate(45deg);
             }
           }
         }

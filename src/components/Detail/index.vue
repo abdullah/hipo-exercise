@@ -14,7 +14,7 @@
           </div>
           <div class="place-info">
             <div class="container">
-              <div class="point">{{result.body.rating}}</div>
+              <div class="point" :data-point="result.body.rating" :style="{ 'background-color': `#${result.body.ratingColor}` }"></div>
               <div class="info-field">
                 <address>{{result.body.location.address}}</address>
               </div>

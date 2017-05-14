@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from "axios";
-import { clientId, clientSecret, apiUrl } from "./config";
+import { clientId, clientSecret } from "./config";
 
 const url = "https://api.foursquare.com/v2/venues/explore";
 const searchPlace = data => {

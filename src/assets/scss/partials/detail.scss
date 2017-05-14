@@ -7,7 +7,7 @@ section.page {
       position: relative;
       &:after {
         content: '';
-        background-color: #12195f;
+        background-color: $dark-indigo;
         opacity: .5;
         position: absolute;
         width: 100%;
@@ -55,7 +55,7 @@ section.page {
           bottom: 0;
           width: 180px;
           height: 180px;
-          border: solid 3.5px #ffc5c5;
+          border: solid 3.5px $light-peach;
         }
       }
       .detail-of-place {
@@ -63,7 +63,7 @@ section.page {
         h2 {
           font-size: 63px;
           font-weight: 300;
-          color: #ffffff;
+          color: $white;
           margin: 0;
           max-width: 70%;
           white-space: nowrap;
@@ -76,14 +76,14 @@ section.page {
           background-image: linear-gradient(95deg, #1e0db4, #e44747);
           font-size: 12px;
           font-weight: 500;
-          color: #ffffff;
+          color: $white;
           min-height: 115px;
           >.container {
             position: relative;
           }
           .info-field {
             margin-bottom: 6px;
-            color: #fff;
+            color: $white;
             address {
               font-style: normal;
             }
@@ -134,7 +134,7 @@ section.page {
         &:after {
           position: absolute;
           content: '';
-          background-color: rgba(18, 25, 95, 0.5);
+          background-color: $dark-indigo-50;
           width: 100%;
           height: 100%;
           display: none;
@@ -169,7 +169,7 @@ section.page {
           }
         }
         p {
-          color: #fff;
+          color: $white;
           font-size: 14px;
           font-weight: 500;
           text-align: center;
@@ -200,13 +200,13 @@ section.page {
               span {
                 font-size: 14px;
                 font-weight: 500;
-                color: #9b9b9b;
+                color: $warm-grey;
                 margin-top: 10px;
                 display: block;
               }
               p {
                 font-size: 14px;
-                color: #9b9b9b;
+                color: $warm-grey;
                 margin: 18px 0 0 0;
               }
             }

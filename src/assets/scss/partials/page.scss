@@ -8,7 +8,7 @@ section.page {
     width: 360px;
     height: 360px;
     position: absolute;
-    border: 3.5px solid #fff;
+    border: 3.5px solid $white;
     transform: rotate(45deg);
     top: -180px;
     display: block;
@@ -28,7 +28,7 @@ section.page {
   }
   .recent-search,
   .tips {
-    background-color: #fff;
+    background-color: $white;
     box-shadow: 0 0 34px 0 rgba(255, 95, 95, 0.32);
     display: flex;
     align-items: center;
@@ -47,14 +47,14 @@ section.page {
       display: block;
       font-size: 16px;
       font-weight: 500;
-      color: #4a4a4a;
+      color: $greyish-brown;
       padding: 40px 0;
       position: relative;
       &:after {
         content: "";
         width: 70px;
         height: 2px;
-        background-color: #c4c0ff;
+        background-color: $ight-periwinkle;
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -75,7 +75,7 @@ section.page {
           text-decoration: none;
           font-size: 14px;
           font-weight: 500;
-          color: #9b9b9b;
+          color: $warm-grey;
         }
       }
     }

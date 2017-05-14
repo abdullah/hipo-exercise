@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { getVenue } from '@/services/detail';
+import getVenue from '@/services/detail';
 import photoCard from '@/components/Detail/photo-card';
 import detailTips from '@/components/Detail/detail-tips';
 import loading from '@/components/common/loading';

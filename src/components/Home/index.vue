@@ -32,7 +32,7 @@ import showVenues from '@/components/Home/show-venues';
 import loading from '@/components/common/loading';
 
 // Helper
-import { searchPlace } from '@/services/home';
+import searchPlace from '@/services/home';
 
 export default {
   name: 'home',

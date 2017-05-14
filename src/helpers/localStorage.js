@@ -1,5 +1,4 @@
-/* eslint-disable */
-const keyword = "recent_search";
+const keyword = 'recent_search';
 
 const storage = {
   get: () => {
@@ -10,13 +9,13 @@ const storage = {
     return false;
   },
 
-  set: value => {
+  set: (value) => {
     localStorage.clear();
     const stringifiedToken = JSON.stringify(value);
     return localStorage.setItem(keyword, stringifiedToken);
   },
 
-  clear: () => localStorage.clear()
+  clear: () => localStorage.clear(),
 };
 
 export default storage;

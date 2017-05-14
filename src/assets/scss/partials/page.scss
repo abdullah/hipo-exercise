@@ -1,4 +1,30 @@
 section.page {
+  .loading{
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+  }
+  .brand-logo {
+    width: 360px;
+    height: 360px;
+    position: absolute;
+    border: 3.5px solid #fff;
+    transform: rotate(45deg);
+    top: -180px;
+    &:after {
+      content: '';
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      transform: rotate(-45deg);
+      background-image: url('/static/common/logo-pure.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 80px;
+    }
+  }
   .recent-search,
   .tips {
     background-color: #fff;

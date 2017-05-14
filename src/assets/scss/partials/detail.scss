@@ -22,9 +22,10 @@ section.page {
           position: relative;
         }
         .one {
-          width: 360px;
-          height: 360px;
-          border: solid 3.5px #ffffff;
+          position: relative;
+          top: 0;
+          left: 0;
+          transform: rotate(90deg);
         }
         .two {
           position: absolute;

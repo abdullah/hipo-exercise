@@ -34,6 +34,8 @@ section.page {
     flex-direction: column;
     padding-bottom: 40px;
     margin-top: 10px;
+    position: relative;
+    z-index: 2;
     &:after,
     &:before {
       content: "";

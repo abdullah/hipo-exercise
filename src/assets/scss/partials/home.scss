@@ -172,7 +172,7 @@ section.page {
             background: red;
             transform: rotate(-45deg); // background-color: #776cee;
             &:after {
-              content: attr(data-poin);
+              content: attr(data-point);
               position: absolute;
               transform: rotate(45deg);
               top: 10px;

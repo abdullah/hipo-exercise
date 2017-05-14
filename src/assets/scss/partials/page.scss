@@ -11,6 +11,7 @@ section.page {
     border: 3.5px solid #fff;
     transform: rotate(45deg);
     top: -180px;
+    display: block;
     &:after {
       content: '';
       width: 80px;

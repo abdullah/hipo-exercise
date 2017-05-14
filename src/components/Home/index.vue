@@ -3,7 +3,7 @@
     <div class="banner" :class="{'show-detail' : result.loaded}">
       <div class="container">
         <div class="banner-content">
-          <div class="brand-logo"></div>
+          <router-link to="/" class="brand-logo"></router-link>
           <div class="slogan" v-show="!result.loaded">
             <h2>Just like you want!</h2>
             <p>You can tell us what you're looking for</p>

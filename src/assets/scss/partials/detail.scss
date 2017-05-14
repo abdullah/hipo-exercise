@@ -65,6 +65,10 @@ section.page {
           font-weight: 300;
           color: #ffffff;
           margin: 0;
+          max-width: 70%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .place-info {
           padding: 22px 0;
@@ -73,6 +77,7 @@ section.page {
           font-size: 12px;
           font-weight: 500;
           color: #ffffff;
+          min-height: 115px;
           >.container {
             position: relative;
           }

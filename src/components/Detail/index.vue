@@ -7,7 +7,7 @@
           <div class="box two">
             <span class="icon" :style="{ 'background-image': `url(${categoryIcon})` }"></span>
           </div>
-          <div class="box one brand-logo"></div>
+          <router-link to="/" class="box one brand-logo"></router-link>
         </div>
         <div class="detail-of-place">
           <div class="container">

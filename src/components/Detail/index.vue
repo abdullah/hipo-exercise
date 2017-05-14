@@ -1,14 +1,12 @@
 <template>
   <section class="page detail">
-    <div class="banner" :style="{ 'background-image': 'url('+ bestPhoto +')' }">
+    <div class="banner" :style="{ 'background-image': `url(${bestPhoto})` }">
       <div class="banner-detail-content">
         <div class="banner-icons">
           <div class="box two">
-            <span class="icon">icon</span>
+            <span class="icon" :style="{ 'background-image': `url(${categoryIcon})` }"></span>
           </div>
-          <div class="box one brand-logo">
-            <span class="icon">icon</span>
-          </div>
+          <div class="box one brand-logo"></div>
         </div>
         <div class="detail-of-place">
           <div class="container">
@@ -42,18 +40,7 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="tips">
-              <span class="title">TIPS</span>
-              <ul>
-                <li v-for="i in 10">
-                  <div class="avatar"></div>
-                  <div class="comment">
-                    <span>Abdullah Mara</span>
-                    <p>Lorem ipsum dolor sit.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            <detail-tips :data="result.body.tips"></detail-tips>
           </div>
         </div>
       </div>
@@ -64,11 +51,12 @@
 <script>
 import { getVenue } from '@/services/detail';
 import photoCard from '@/components/Detail/photo-card';
+import detailTips from '@/components/Detail/detail-tips';
 
 export default {
   props: ['id'],
   name: 'detail',
-  components: { photoCard },
+  components: { photoCard, detailTips },
   data() {
     return {
       result: {
@@ -94,6 +82,10 @@ export default {
         g.items.map(item => arr.push(item));
         return arr;
       }, []);
+    },
+    categoryIcon() {
+      const { icon } = this.result.body.categories[0];
+      return `${icon.prefix}64${icon.suffix}`;
     },
   },
   methods: {

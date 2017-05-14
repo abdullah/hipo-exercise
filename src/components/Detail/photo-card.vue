@@ -4,6 +4,7 @@
     <div class="owner">
       <span :style="{ 'background-image': `url(${ownerPhoto})` }"></span>
     </div>
+    <p>{{fullName}}</p>
   </div>
 </template>
 
@@ -13,8 +14,11 @@ export default {
   name: 'photo-card',
   computed: {
     photo() {
-      const url = `${this.data.prefix}300x500${this.data.suffix}`;
-      return url;
+      return `${this.data.prefix}300x500${this.data.suffix}`;
+    },
+    fullName() {
+      const { user } = this.data;
+      return `${user.firstName} ${user.lastName}`;
     },
     ownerPhoto() {
       const { photo } = this.data.user;

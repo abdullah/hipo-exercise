@@ -68,33 +68,35 @@ section.page {
         }
       }
       &.show-detail {
-        align-items: center;
-        justify-content: center;
-        min-height: 150px;
-        transition: all 1s;
-        .banner-content {
-          transition: all 1s;
-          min-height: 150px!important;
-          flex-direction: row;
+        @media (min-width: 576px) {
           align-items: center;
-          .slogan {
-            display: none;
-          }
-          .brand-logo {
-            height: 228px;
-            width: 228px;
-            left: 0;
-            top: -144px;
+          justify-content: center;
+          min-height: 150px;
+          transition: all 1s;
+          .banner-content {
             transition: all 1s;
-            &:after {
-              bottom: 10px;
-              right: 10px;
-              background-size: 60px;
+            min-height: 150px!important;
+            flex-direction: row;
+            align-items: center;
+            .slogan {
+              display: none;
             }
-          }
-          .search-area {
-            margin-bottom: 0;
-            margin-top: 0;
+            .brand-logo {
+              height: 228px;
+              width: 228px;
+              left: 0;
+              top: -144px;
+              transition: all 1s;
+              &:after {
+                bottom: 10px;
+                right: 10px;
+                background-size: 60px;
+              }
+            }
+            .search-area {
+              margin-bottom: 0;
+              margin-top: 0;
+            }
           }
         }
       }

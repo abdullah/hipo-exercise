@@ -4,7 +4,7 @@
       <div class="container">
         <div class="banner-content">
           <router-link to="/" class="brand-logo"></router-link>
-          <div class="slogan" v-show="!result.loaded">
+          <div class="slogan">
             <h2>Just like you want!</h2>
             <p>You can tell us what you're looking for</p>
           </div>

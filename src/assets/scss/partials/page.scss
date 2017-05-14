@@ -1,8 +1,8 @@
 section.page {
-  .loading{
-      display: flex;
-      justify-content: center;
-      padding: 30px;
+  .loading {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
   }
   .brand-logo {
     width: 360px;
@@ -77,6 +77,13 @@ section.page {
           font-weight: 500;
           color: #9b9b9b;
         }
+      }
+    }
+    @media (max-width: 992px) {
+      span.title {
+        padding: 20px;
+        font-size: 13px;
+        text-align: center;
       }
     }
   }

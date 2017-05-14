@@ -5,7 +5,7 @@
 ### Directory Structure
 
 ```bash
-├── build # Root folder for build system related config.
+├── build                     # Root folder for build system related config.
 ├── config
 ├── src
 |  ├── App.vue                # Main container component

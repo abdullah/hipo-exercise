@@ -18,7 +18,7 @@ export default {
     },
     fullName() {
       const { user } = this.data;
-      return `${user.firstName} ${user.lastName}`;
+      return `${user.firstName} ${user.lastName || ''}`;
     },
     ownerPhoto() {
       const { photo } = this.data.user;

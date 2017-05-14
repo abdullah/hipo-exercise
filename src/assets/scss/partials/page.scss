@@ -4,6 +4,70 @@ section.page {
     justify-content: center;
     padding: 30px;
   }
+  //
+  .badges {
+    color: $white;
+    margin-right: 30px;
+    padding-left: 20px;
+    display: inline-block;
+    position: relative;
+    &:after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -8px;
+      background-repeat: no-repeat;
+      background-size: 14px;
+    }
+    &.rating {
+      &:after {
+        background-image: url('/static/common/icon-user.svg');
+      }
+    }
+    &.address {
+      &:after {
+        background-image: url('/static/common/icon-address.svg');
+      }
+    }
+    &.phone {
+      &:after {
+        background-image: url('/static/common/icon-phone.svg');
+      }
+    }
+    &.price {
+      &:after {
+        background-image: url('/static/common/icon-price.svg');
+        left: -20px;
+      }
+      width: 60px;
+      height: 3px;
+      background: #111;
+      margin-top: 9px;
+      padding-left: 0;
+      span {
+        display: block;
+        width: 25%;
+        height: 3px; // background-color: red;
+        float: left;
+        &:nth-child(1) {
+          background-color: $light-lavender;
+        }
+        &:nth-child(2) {
+          background-color: $perrywinkle;
+        }
+        &:nth-child(3) {
+          background-color: $periwinkle;
+        }
+        &:nth-child(4) {
+          background-color: $purpley;
+        }
+      }
+    }
+  }
+  //
   .brand-logo {
     width: 360px;
     height: 360px;

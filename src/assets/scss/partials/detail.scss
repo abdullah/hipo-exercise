@@ -84,6 +84,7 @@ section.page {
           .info-field {
             margin-bottom: 6px;
             color: $white;
+            display: block;
             address {
               font-style: normal;
             }
@@ -130,7 +131,7 @@ section.page {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; // overflow: hidden;
+        justify-content: center;
         &:after {
           position: absolute;
           content: '';

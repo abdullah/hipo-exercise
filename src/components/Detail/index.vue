@@ -17,13 +17,20 @@
             <div class="container">
               <div class="point" :data-point="result.body.rating" :style="{ 'background-color': `#${result.body.ratingColor}` }"></div>
               <div class="info-field">
-                <address>{{result.body.location.address}}</address>
+                <div class="badges address">
+                  <address>{{result.body.location.address}}</address>
+                </div>
               </div>
               <div class="info-field">
-                <a :href="'tel:'+result.body.contact.phone">{{result.body.contact.formattedPhone}}</a>
+                <div class="badges phone">
+                  <a :href="'tel:'+result.body.contact.phone">{{result.body.contact.formattedPhone}}</a>
+                </div>
               </div>
               <div class="info-field">
-                <span>{{result.body.ratingSignals}}</span>
+                <div class="badges rating">{{result.body.ratingSignals}}</div>
+                <div class="badges price">
+                  <span v-for="p in price"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -81,6 +88,10 @@ export default {
       if (!this.result.loaded) return [];
       const { prefix, suffix } = this.result.body.bestPhoto;
       return `${prefix}300x400${suffix}`;
+    },
+    price() {
+      const price = this.result.body.price;
+      return price ? price.tier : 0;
     },
     photos() {
       if (!this.result.loaded) return [];

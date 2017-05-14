@@ -4,8 +4,10 @@
     <div class="venue-card" :style="{ 'background-image': `url(${photo})` }">
       <div class="desc">
         <h3>{{name}}</h3>
-        <span>{{ratingSignals}}</span>
-        <span></span>
+        <div class="badges rating">{{ratingSignals}}</div>
+        <div class="badges price">
+          <span v-for="p in price"></span>
+        </div>
         <div class="point" :style="{ 'background-color': `#${ratingColor}` }" :data-point="rating"></div>
       </div>
     </div>
@@ -31,6 +33,10 @@ export default {
     },
     ratingColor() {
       return this.data.venue.ratingColor;
+    },
+    price() {
+      const price = this.data.venue.price;
+      return price ? price.tier : 0;
     },
     photo() {
       const featuredPhotos = this.data.venue.featuredPhotos;

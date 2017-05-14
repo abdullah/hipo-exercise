@@ -1,6 +1,7 @@
 <template>
   <section class="page detail">
-    <div class="banner" :style="{ 'background-image': `url(${bestPhoto})` }">
+
+    <div v-if="result.loaded" class="banner" :style="{ 'background-image': `url(${bestPhoto})` }">
       <div class="banner-detail-content">
         <div class="banner-icons">
           <div class="box two">
@@ -29,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="place-detail">
+    <div v-if="result.loaded" class="place-detail">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-8">
@@ -45,6 +46,8 @@
         </div>
       </div>
     </div>
+
+    <loading v-if="result.loading" />
   </section>
 </template>
 
@@ -52,11 +55,12 @@
 import { getVenue } from '@/services/detail';
 import photoCard from '@/components/Detail/photo-card';
 import detailTips from '@/components/Detail/detail-tips';
+import loading from '@/components/common/loading';
 
 export default {
   props: ['id'],
   name: 'detail',
-  components: { photoCard, detailTips },
+  components: { photoCard, detailTips, loading },
   data() {
     return {
       result: {

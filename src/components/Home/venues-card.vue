@@ -33,7 +33,9 @@ export default {
       return this.data.venue.ratingColor;
     },
     photo() {
-      const photo = this.data.venue.featuredPhotos.items[0];
+      const featuredPhotos = this.data.venue.featuredPhotos;
+      if (!featuredPhotos) return '';
+      const photo = featuredPhotos.items[0];
       return `${photo.prefix}300x300${photo.suffix}`;
     },
   },

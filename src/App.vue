@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="page-animate" enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight" mode="out-in">
+    <transition name="page-animate" enter-active-class="animated fadeIn" leave-active-class="animated slideOutRight" mode="out-in">
       <router-view></router-view>
     </transition>
     <footer-navigation></footer-navigation>
@@ -16,3 +16,9 @@ export default {
   components: { FooterNavigation },
 };
 </script>
+
+<style>
+  .animated{
+    animation-duration: .6s;
+  }
+</style>
